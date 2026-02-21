@@ -166,6 +166,10 @@ ul {
     .mobile-only {
         display: block;
     }
+
+    .desktop-only {
+        display: none;
+    }
 }
 
 /* Hero Section */
@@ -344,23 +348,20 @@ ul {
     color: var(--accent-pink);
 }
 
+/* Mobile Overrides */
 @media (max-width: 768px) {
     .badge {
         right: auto;
         left: 20px;
-        top: auto;
         bottom: 20px;
+        top: auto;
         transform: none;
         width: 70px;
         height: 70px;
-        padding: 10px;
+        padding: 5px;
         font-size: 0.55rem;
     }
-}
 
-
-/* Mobile Overrides */
-@media (max-width: 768px) {
     .header-right {
         display: flex;
         gap: 15px;
