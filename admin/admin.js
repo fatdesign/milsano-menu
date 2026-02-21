@@ -139,14 +139,19 @@ async function loadMenu() {
 
 function showConfigNotice(errMsg = '') {
     const notice = document.createElement('div');
-    notice.style.background = 'rgba(212, 175, 55, 0.1)';
+    notice.style.background = 'rgba(191, 114, 69, 0.1)';
     notice.style.border = '1px solid var(--gold)';
     notice.style.padding = '1rem';
     notice.style.borderRadius = '8px';
     notice.style.marginBottom = '2rem';
-    notice.innerHTML = `⚠️ <strong>Lokaler Modus:</strong> Änderungen werden nicht dauerhaft gespeichert (GitHub Proxy erforderlich).`;
+    notice.innerHTML = `
+        <div style="font-weight:bold;margin-bottom:0.5rem;">⚠️ Lokaler Modus</div>
+        <p style="font-size:0.85rem;margin-bottom:0.5rem;">Änderungen werden nicht dauerhaft gespeichert (GitHub Proxy erforderlich).</p>
+        ${errMsg ? `<p style="font-size:0.75rem;opacity:0.6;">Fehler-Details: ${errMsg}</p>` : ''}
+    `;
     categoriesContainer.appendChild(notice);
 }
+
 
 // ---- Render Dashboard ----
 function renderDashboard() {

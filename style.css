@@ -344,6 +344,21 @@ ul {
     color: var(--accent-pink);
 }
 
+@media (max-width: 768px) {
+    .badge {
+        right: auto;
+        left: 20px;
+        top: auto;
+        bottom: 20px;
+        transform: none;
+        width: 70px;
+        height: 70px;
+        padding: 10px;
+        font-size: 0.55rem;
+    }
+}
+
+
 /* Mobile Overrides */
 @media (max-width: 768px) {
     .header-right {
