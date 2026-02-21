@@ -182,7 +182,7 @@ ul {
     text-align: center;
     margin-top: 180px;
     /* High margin for fixed header+ribbon */
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?auto=format&fit=crop&q=80&w=1200');
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('image/milsano-grill.jpg');
     background-size: cover;
     background-position: center;
 }
