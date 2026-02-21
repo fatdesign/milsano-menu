@@ -150,20 +150,21 @@ document.addEventListener('DOMContentLoaded', async () => {
                 const itemDesc = item.desc ? (item.desc[lang] || item.desc['de']) : '';
                 const cartItem = cart.find(i => i.name === itemName);
                 const qty = cartItem ? cartItem.qty : 0;
+                const isSoldOut = item.isSoldOut === true;
 
                 itemsHtml += `
-                    <div class="menu-item" style="animation-delay: ${idx * 0.1}s">
+                    <div class="menu-item ${isSoldOut ? 'is-sold-out' : ''}" style="animation-delay: ${idx * 0.1}s">
                         <div class="item-header">
-                            <span class="item-name">${itemName}</span>
+                            <span class="item-name">${itemName} ${isSoldOut ? '<span class="sold-out-badge">AUSVERKAUFT</span>' : ''}</span>
                             <span class="item-price">€ ${item.price}</span>
                         </div>
                         ${itemDesc ? `<p class="item-desc">${itemDesc}</p>` : ''}
                         
                         <div class="item-actions-row">
                             <div class="qty-controls">
-                                <button class="qty-btn" onclick="removeFromCart('${itemName.replace(/'/g, "\\'")}')">-</button>
+                                <button class="qty-btn" onclick="removeFromCart('${itemName.replace(/'/g, "\\'")}')" ${isSoldOut ? 'disabled' : ''}>-</button>
                                 <span class="qty-val">${qty}</span>
-                                <button class="qty-btn" onclick="addToCart('${itemName.replace(/'/g, "\\'")}', '${item.price}')">+</button>
+                                <button class="qty-btn" onclick="addToCart('${itemName.replace(/'/g, "\\'")}', '${item.price}')" ${isSoldOut ? 'disabled' : ''}>+</button>
                             </div>
                         </div>
                     </div>
