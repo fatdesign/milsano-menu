@@ -180,8 +180,8 @@ ul {
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin-top: 180px;
-    /* High margin for fixed header+ribbon */
+    margin-top: 140px;
+    /* Reduced to remove gap under header+ribbon */
     background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('image/milsano-grill.jpg');
     background-size: cover;
     background-position: center;

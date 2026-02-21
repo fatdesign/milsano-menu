@@ -1,151 +1,139 @@
 {
-  "categories": [
-    {
-      "id": "vorspeisen",
-      "name": {
-        "de": "Vorspeisen",
-        "en": "Starters"
-      },
-      "items": [
+    "categories": [
         {
-          "name": {
-            "de": "3x Stück Bruschette Tomaten",
-            "en": "3 pcs. Bruschetta Tomato"
-          },
-          "price": "12.00",
-          "desc": {
-            "de": "Tomaten I Büffelmozzarella I Basilikumpesto",
-            "en": "Tomato I Buffalo Mozzarella I Basil Pesto"
-          }
+            "id": "vorspeisen",
+            "name": {
+                "de": "Vorspeisen",
+                "en": "Starters"
+            },
+            "items": [
+                {
+                    "name": {
+                        "de": "3x Stück Bruschette Tomaten",
+                        "en": "3 pcs. Bruschetta Tomato"
+                    },
+                    "price": "12.00",
+                    "desc": {
+                        "de": "Tomaten I Büffelmozzarella I Basilikumpesto",
+                        "en": "Tomato I Buffalo Mozzarella I Basil Pesto"
+                    }
+                },
+                {
+                    "name": {
+                        "de": "3x Stück Bruschette Thunfisch",
+                        "en": "3 pcs. Bruschetta Tuna"
+                    },
+                    "price": "12.00",
+                    "desc": {
+                        "de": "Thunfischcrème I Jungzwiebel I Kapern I Olive",
+                        "en": "Tuna Cream I Spring Onion I Capers I Olive"
+                    }
+                },
+                {
+                    "name": {
+                        "de": "Beef Tatar v. heimischen Rind",
+                        "en": "Beef Tartar"
+                    },
+                    "price": "20.90",
+                    "desc": {
+                        "de": "mit allem was dazu gehört! (120g)",
+                        "en": "with all the trimmings! (120g)"
+                    }
+                }
+            ]
         },
         {
-          "name": {
-            "de": "3x Stück Bruschette Thunfisch",
-            "en": "3 pcs. Bruschetta Tuna"
-          },
-          "price": "12.00",
-          "desc": {
-            "de": "Thunfischcrème I Jungzwiebel I Kapern I Olive",
-            "en": "Tuna Cream I Spring Onion I Capers I Olive"
-          }
+            "id": "pasta",
+            "name": {
+                "de": "Pasta",
+                "en": "Pasta"
+            },
+            "items": [
+                {
+                    "name": {
+                        "de": "Spaghetti Aglio Olio",
+                        "en": "Spaghetti Aglio Olio"
+                    },
+                    "price": "13.90",
+                    "desc": {
+                        "de": "Olivenöl I Parmesan I scharf",
+                        "en": "Olive oil I Parmesan I spicy"
+                    }
+                },
+                {
+                    "name": {
+                        "de": "milsano Veggie Pasta",
+                        "en": "milsano Veggie Pasta"
+                    },
+                    "price": "15.90",
+                    "desc": {
+                        "de": "Spaghetti I Grillgemüse I Rucola I Parmesan",
+                        "en": "Spaghetti I grilled vegetables I rocket I parmesan"
+                    }
+                }
+            ]
         },
         {
-          "name": {
-            "de": "Beef Tatar v. heimischen Rind",
-            "en": "Beef Tartar"
-          },
-          "price": "20.90",
-          "desc": {
-            "de": "mit allem was dazu gehört! (120g)",
-            "en": "with all the trimmings! (120g)"
-          }
+            "id": "fleisch",
+            "name": {
+                "de": "Fleischgerichte",
+                "en": "Meat Dishes"
+            },
+            "items": [
+                {
+                    "name": {
+                        "de": "Wiener Schnitzel",
+                        "en": "Wiener Schnitzel"
+                    },
+                    "price": "17.90",
+                    "desc": {
+                        "de": "vom Schwein in Butterschmalz gebacken, dazu eine Beilage",
+                        "en": "pork baked in clarified butter, served with one side"
+                    }
+                },
+                {
+                    "name": {
+                        "de": "Feuergrillteller",
+                        "en": "Fire Grill Plate"
+                    },
+                    "price": "24.90",
+                    "desc": {
+                        "de": "Rind, Huhn, Schwein mit BBQ Sauce, dazu eine Beilage",
+                        "en": "Beef, chicken, pork with BBQ sauce, served with one side"
+                    }
+                }
+            ]
         },
         {
-          "name": {
-            "de": "Coco",
-            "en": "Popo"
-          },
-          "price": "33.77",
-          "isSoldOut": false,
-          "desc": {
-            "de": "Lolo",
-            "en": "Lolo"
-          }
+            "id": "pizza",
+            "name": {
+                "de": "Flamm-Pizza Specials",
+                "en": "Flame-Pizza Specials"
+            },
+            "items": [
+                {
+                    "name": {
+                        "de": "Margherita",
+                        "en": "Margherita"
+                    },
+                    "price": "9.90",
+                    "desc": {
+                        "de": "Tomatensauce I Mozzarella I Basilikumblatt",
+                        "en": "Tomato sauce I mozzarella I basil leaf"
+                    }
+                },
+                {
+                    "name": {
+                        "de": "Salami",
+                        "en": "Salami"
+                    },
+                    "price": "13.90",
+                    "desc": {
+                        "de": "Tomatensauce I Mozzarella I Salami",
+                        "en": "Tomato sauce I mozzarella I salami"
+                    }
+                }
+            ]
         }
-      ]
-    },
-    {
-      "id": "pasta",
-      "name": {
-        "de": "Pasta",
-        "en": "Pasta"
-      },
-      "items": [
-        {
-          "name": {
-            "de": "Spaghetti Aglio Olio",
-            "en": "Spaghetti Aglio Olio"
-          },
-          "price": "13.90",
-          "desc": {
-            "de": "Olivenöl I Parmesan I scharf",
-            "en": "Olive oil I Parmesan I spicy"
-          }
-        },
-        {
-          "name": {
-            "de": "milsano Veggie Pasta",
-            "en": "milsano Veggie Pasta"
-          },
-          "price": "15.90",
-          "desc": {
-            "de": "Spaghetti I Grillgemüse I Rucola I Parmesan",
-            "en": "Spaghetti I grilled vegetables I rocket I parmesan"
-          }
-        }
-      ]
-    },
-    {
-      "id": "fleisch",
-      "name": {
-        "de": "Fleischgerichte",
-        "en": "Meat Dishes"
-      },
-      "items": [
-        {
-          "name": {
-            "de": "Wiener Schnitzel",
-            "en": "Wiener Schnitzel"
-          },
-          "price": "17.90",
-          "desc": {
-            "de": "vom Schwein in Butterschmalz gebacken, dazu eine Beilage",
-            "en": "pork baked in clarified butter, served with one side"
-          }
-        },
-        {
-          "name": {
-            "de": "Feuergrillteller",
-            "en": "Fire Grill Plate"
-          },
-          "price": "24.90",
-          "desc": {
-            "de": "Rind, Huhn, Schwein mit BBQ Sauce, dazu eine Beilage",
-            "en": "Beef, chicken, pork with BBQ sauce, served with one side"
-          }
-        }
-      ]
-    },
-    {
-      "id": "pizza",
-      "name": {
-        "de": "Flamm-Pizza Specials",
-        "en": "Flame-Pizza Specials"
-      },
-      "items": [
-        {
-          "name": {
-            "de": "Margherita",
-            "en": "Margherita"
-          },
-          "price": "9.90",
-          "desc": {
-            "de": "Tomatensauce I Mozzarella I Basilikumblatt",
-            "en": "Tomato sauce I mozzarella I basil leaf"
-          }
-        },
-        {
-          "name": {
-            "de": "Salami",
-            "en": "Salami"
-          },
-          "price": "13.90",
-          "desc": {
-            "de": "Tomatensauce I Mozzarella I Salami",
-            "en": "Tomato sauce I mozzarella I salami"
-          }
-        }
-      ]
-    }
-  ]
+    ]
 }
