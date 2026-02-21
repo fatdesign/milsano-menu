@@ -6,7 +6,7 @@
 
 const SETTINGS = {
     // 1. BRANDING
-    restaurantName: "MITTAGS MENÜ",
+    restaurantName: "MILSANO ADMIN",
     tagline: "Restaurant Milsano",
     metaDescription: "Digitales Mittagsmenü vom Restaurant Milsano. Dienstag bis Freitag 11:45 – 13:45 Uhr.",
     footerText: "2026 Restaurant Milsano",
