@@ -342,6 +342,39 @@ ul {
     font-weight: 300;
 }
 
+/* Menu Switcher (Mittag/Abend) */
+.menu-switcher {
+    display: flex;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.menu-type-btn {
+    padding: 6px 15px;
+    font-size: 0.7rem;
+    font-weight: 700;
+    border-radius: 20px;
+    color: var(--text-secondary);
+    transition: var(--transition-smooth);
+}
+
+.menu-type-btn.active {
+    background: var(--accent-pink);
+    color: var(--bg-primary);
+}
+
+.menu-type-btn:not(.active):hover {
+    color: var(--accent-pink);
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
 /* Lang Switcher */
 .lang-switcher {
     display: flex;

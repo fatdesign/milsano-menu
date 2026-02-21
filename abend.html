@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-hydrate="restaurantName">M I L S A N O</title>
+    <title data-hydrate="restaurantName">ABEND MENÜ</title>
     <meta name="description" content="" data-hydrate="metaDescription">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body data-menu-type="abend">
 
     <!-- Badges -->
     <div class="badge badge-opening">
@@ -27,12 +27,12 @@
             <div class="header-top-row">
                 <div class="logo-container">
                     <img src="logo/logo-milsano.png" alt="Milsano Logo" class="restaurant-logo">
-                    <div class="menu-switcher">
-                        <a href="index.html" class="menu-link active">MITTAG</a>
-                        <a href="abend.html" class="menu-link">ABEND</a>
-                    </div>
                 </div>
                 <div class="header-actions">
+                    <div class="menu-switcher">
+                        <a href="index.html" class="menu-type-btn">MITTAG</a>
+                        <a href="abend.html" class="menu-type-btn active">ABEND</a>
+                    </div>
                     <div class="lang-switcher">
                         <button class="lang-btn" data-lang="de">DE</button>
                         <button class="lang-btn" data-lang="en">EN</button>
@@ -56,8 +56,8 @@
         <section class="hero animate-fade-in">
             <div class="hero-overlay"></div>
             <div class="container hero-content">
-                <h1 class="hero-title" data-hydrate="restaurantName">M I L S A N O</h1>
-                <p class="hero-subtitle" data-hydrate="tagline">Genuss im Herzen von Mils</p>
+                <h1 class="hero-title">ABEND MENÜ</h1>
+                <p class="hero-subtitle">Restaurant Milsano</p>
                 <div class="hero-decoration">
                     <span class="line"></span>
                     <span class="icon">✧</span>

@@ -29,6 +29,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const menuApp = document.getElementById('menu-app');
     const categoryList = document.getElementById('category-list');
+    const menuType = document.body.dataset.menuType || 'mittag';
+    const menuFile = menuType === 'abend' ? 'menu-abend.json' : 'menu.json';
 
     const storageKey = typeof SETTINGS !== 'undefined' ? SETTINGS.storageKey : 'milsano_lang';
     const defaultLang = typeof SETTINGS !== 'undefined' ? SETTINGS.defaultLang : 'de';
@@ -36,7 +38,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     let menuData;
     try {
-        const res = await fetch(`./menu.json?t=${Date.now()}`, { cache: 'no-store' });
+        const res = await fetch(`./${menuFile}?t=${Date.now()}`, { cache: 'no-store' });
         menuData = await res.json();
     } catch (e) {
         menuApp.innerHTML = '<p style="text-align:center;color:#888;padding:4rem;">Speisekarte konnte nicht geladen werden.</p>';
