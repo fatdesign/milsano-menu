@@ -23,6 +23,7 @@ const modalCancel = document.getElementById('modal-cancel');
 const catModal = document.getElementById('cat-modal');
 const catForm = document.getElementById('cat-form');
 const catModalCancel = document.getElementById('cat-modal-cancel');
+const menuFileSelect = document.getElementById('menu-file-select');
 
 // --- White-Label Hydration ---
 const hydrateAdminUI = () => {
@@ -96,6 +97,7 @@ async function proxyRequest(method, body = null) {
         headers: {
             'Content-Type': 'application/json',
             'X-Admin-Password': sessionPassword,
+            'X-Menu-File': menuFileSelect ? menuFileSelect.value : 'menu.json'
         },
     };
     if (body) options.body = JSON.stringify(body);
@@ -123,9 +125,10 @@ async function loadMenu() {
     } catch (err) {
         if (err.message.startsWith('401:')) throw err;
 
-        console.warn('Proxy nicht erreichbar, lade lokale menu.json:', err.message);
+        console.warn('Proxy nicht erreichbar, lade lokale Datei:', err.message);
         try {
-            const res = await fetch('../menu.json');
+            const fileName = menuFileSelect ? menuFileSelect.value : 'menu.json';
+            const res = await fetch(`../${fileName}?t=${Date.now()}`);
             menuData = await res.json();
             currentFileSha = null;
             categoriesContainer.innerHTML = '';
@@ -135,6 +138,15 @@ async function loadMenu() {
             categoriesContainer.innerHTML = `<div style="text-align:center;padding:3rem;color:#c0392b;"><p>❌ Fehler beim Laden der Speisekarte.</p></div>`;
         }
     }
+}
+
+// ---- File Switcher event ----
+if (menuFileSelect) {
+    menuFileSelect.addEventListener('change', () => {
+        if (sessionPassword) {
+            loadMenu();
+        }
+    });
 }
 
 function showConfigNotice(errMsg = '') {

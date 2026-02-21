@@ -12,7 +12,7 @@
                         "de": "Curry Zitronengras Suppe",
                         "en": "Curry Lemongrass Soup"
                     },
-                    "price": "9.90",
+                    "price": "8.90",
                     "desc": {
                         "de": "mit gegrillter Garnele",
                         "en": "with grilled prawn"
@@ -21,12 +21,12 @@
                 {
                     "name": {
                         "de": "Datteln im Speckmantel",
-                        "en": "Bacon-wrapped Dates"
+                        "en": "Bacon Wrapped Dates"
                     },
-                    "price": "10.90",
+                    "price": "9.90",
                     "desc": {
                         "de": "gefüllt mit Frischkäse und Salatbouquet",
-                        "en": "filled with cream cheese and side salad"
+                        "en": "filled with cream cheese and salad bouquet"
                     }
                 }
             ]
@@ -45,8 +45,8 @@
                     },
                     "price": "12.00",
                     "desc": {
-                        "de": "Büffelmozzarella I Basilikum",
-                        "en": "Buffalo Mozzarella I Basil"
+                        "de": "Tomaten I Büffelmozzarella I Basilikum",
+                        "en": "Tomato I Buffalo Mozzarella I Basil"
                     }
                 },
                 {
@@ -78,8 +78,8 @@
                     },
                     "price": "13.90",
                     "desc": {
-                        "de": "Von jedem eins!",
-                        "en": "One of each!"
+                        "de": "…von jedem eins!",
+                        "en": "...one of each!"
                     }
                 },
                 {
@@ -89,8 +89,8 @@
                     },
                     "price": "20.90",
                     "desc": {
-                        "de": "vom heimischen Rind, mit allem was dazugehört!",
-                        "en": "local beef, with all the trimmings!"
+                        "de": "vom heimischen Rind mit allem was dazu gehört",
+                        "en": "from local beef with all the trimmings"
                     }
                 },
                 {
@@ -100,14 +100,14 @@
                     },
                     "price": "19.90",
                     "desc": {
-                        "de": "Kalbsnuss I Thunfischcreme I Vogerlsalat I Kapern I Oliven",
-                        "en": "Veal I Tuna Cream I Lamb's Lettuce I Capers I Olives"
+                        "de": "Rosa Kalbfleisch I hausgemachte Thunfischsauce I Kapernbeeren",
+                        "en": "Pink veal I homemade tuna sauce I caper berries"
                     }
                 }
             ]
         },
         {
-            "id": "feuergrill",
+            "id": "grill",
             "name": {
                 "de": "Von unserem Feuergrill",
                 "en": "From our Fire Grill"
@@ -120,19 +120,19 @@
                     },
                     "price": "40.90",
                     "desc": {
-                        "de": "inkl. einer Beilage + Sauce",
-                        "en": "incl. one side + sauce"
+                        "de": "inkl. einer Beilage + Sauce. Zur Wahl mit 1, 2 oder 3 Garnelen (+3.90/Stk)",
+                        "en": "incl. one side + sauce. Optional with 1, 2 or 3 prawns (+3.90/pc)"
                     }
                 },
                 {
                     "name": {
                         "de": "Filet-Steak (200g)",
-                        "en": "Fillet-Steak (200g)"
+                        "en": "Fillet Steak (200g)"
                     },
                     "price": "44.90",
                     "desc": {
-                        "de": "inkl. einer Beilage + Sauce",
-                        "en": "incl. one side + sauce"
+                        "de": "inkl. einer Beilage + Sauce. Zur Wahl mit 1, 2 oder 3 Garnelen (+3.90/Stk)",
+                        "en": "incl. one side + sauce. Optional with 1, 2 or 3 prawns (+3.90/pc)"
                     }
                 },
                 {
@@ -142,19 +142,19 @@
                     },
                     "price": "25.90",
                     "desc": {
-                        "de": "mariniert dazu Knoblauchschwarzbrot",
-                        "en": "marinated served with garlic dark bread"
+                        "de": "mariniert dazu Knoblauchschwarzbrot vom Weberhof Mils",
+                        "en": "marinated served with garlic black bread from Weberhof Mils"
                     }
                 },
                 {
                     "name": {
                         "de": "Gegrilltes BBQ Hühnerfilet",
-                        "en": "Grilled BBQ Chicken"
+                        "en": "Grilled BBQ Chicken Fillet"
                     },
                     "price": "21.90",
                     "desc": {
-                        "de": "inkl. einer Beilage + Sauce",
-                        "en": "incl. one side + sauce"
+                        "de": "inkl. einer Beilage + hausgemachter Sauerrahmdip",
+                        "en": "incl. one side + homemade sour cream dip"
                     }
                 },
                 {
@@ -164,8 +164,8 @@
                     },
                     "price": "25.90",
                     "desc": {
-                        "de": "inkl. einer Beilage + Sauce",
-                        "en": "incl. one side + sauce"
+                        "de": "inkl. einer Beilage + hausgemachter Sauerrahmdip",
+                        "en": "incl. one side + homemade sour cream dip"
                     }
                 },
                 {
@@ -185,7 +185,7 @@
             "id": "burger",
             "name": {
                 "de": "Burgertime",
-                "en": "Burger Time"
+                "en": "Burgertime"
             },
             "items": [
                 {
@@ -195,8 +195,8 @@
                     },
                     "price": "23.90",
                     "desc": {
-                        "de": "Rinderpatty I Cheddar I Speck I Burgersauce",
-                        "en": "Beef patty I cheddar I bacon I burger sauce"
+                        "de": "Rosa gebratenes Rinderpatty I Burger Brot v. Weberhof Mils I Cheddar I Speck",
+                        "en": "Pink roasted beef patty I burger bun v. Weberhof Mils I cheddar I bacon"
                     }
                 },
                 {
@@ -206,8 +206,8 @@
                     },
                     "price": "23.90",
                     "desc": {
-                        "de": "Rinderpatty auf Kartoffelrösti",
-                        "en": "Beef patty on potato rösti"
+                        "de": "Rinderpatty auf Kartoffelrösti I Tomate I Speck I Käse",
+                        "en": "Beef patty on potato rösti I tomato I bacon I cheese"
                     }
                 },
                 {
@@ -217,8 +217,81 @@
                     },
                     "price": "22.90",
                     "desc": {
-                        "de": "BBQ Huhn I Käse I Speck I Steakmayo",
-                        "en": "BBQ chicken I cheese I bacon I steak mayo"
+                        "de": "mariniertes BBQ Huhn I Burger Brot v. Weberhof Mils I Käse I Speck",
+                        "en": "marinated BBQ chicken I burger bun v. Weberhof Mils I cheese I bacon"
+                    }
+                },
+                {
+                    "name": {
+                        "de": "Naked Chicken Cheese Burger",
+                        "en": "Naked Chicken Cheese Burger"
+                    },
+                    "price": "22.90",
+                    "desc": {
+                        "de": "mariniertes BBQ Huhn auf Kartoffelrösti I Käse I Speck",
+                        "en": "marinated BBQ chicken on potato rösti I cheese I bacon"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "pasta",
+            "name": {
+                "de": "Unsere Pasta Gerichte",
+                "en": "Our Pasta Dishes"
+            },
+            "items": [
+                {
+                    "name": {
+                        "de": "Spaghetti Aglio E Olio",
+                        "en": "Spaghetti Aglio E Olio"
+                    },
+                    "price": "13.90",
+                    "desc": {
+                        "de": "Olivenöl I Knoblauch I Parmesan I scharf",
+                        "en": "Olive oil I garlic I parmesan I spicy"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "salate",
+            "name": {
+                "de": "Gemischte Salatteller",
+                "en": "Mixed Salad Plates"
+            },
+            "items": [
+                {
+                    "name": {
+                        "de": "Salatteller mit Rindstranchen",
+                        "en": "Salad with Beef Strips"
+                    },
+                    "price": "24.90",
+                    "desc": {
+                        "de": "mit gegrillten Tranchen vom heimischen Rind",
+                        "en": "with grilled strips of local beef"
+                    }
+                },
+                {
+                    "name": {
+                        "de": "Salatteller mit Black Tiger Garnelen",
+                        "en": "Salad with Black Tiger Prawns"
+                    },
+                    "price": "25.90",
+                    "desc": {
+                        "de": "mit gegrillten Black Tiger Garnelen",
+                        "en": "with grilled black tiger prawns"
+                    }
+                },
+                {
+                    "name": {
+                        "de": "Salatteller mit Grillgemüse",
+                        "en": "Salad with Grilled Vegetables"
+                    },
+                    "price": "18.90",
+                    "desc": {
+                        "de": "mit Grillgemüse & Parmesan",
+                        "en": "with grilled vegetables & parmesan"
                     }
                 }
             ]
@@ -226,8 +299,8 @@
         {
             "id": "pizza",
             "name": {
-                "de": "milsano Flamm-Pizza Specials",
-                "en": "milsano Flame-Pizza Specials"
+                "de": "Flamm-Pizza Spezial",
+                "en": "Flame-Pizza Special"
             },
             "items": [
                 {
@@ -237,8 +310,8 @@
                     },
                     "price": "9.90",
                     "desc": {
-                        "de": "Tomatensauce I Mozzarella I Basilikum",
-                        "en": "Tomato sauce I mozzarella I basil"
+                        "de": "Tomatensauce I Mozzarella I Basilikumblatt",
+                        "en": "Tomato sauce I mozzarella I basil leaf"
                     }
                 },
                 {
@@ -255,12 +328,12 @@
                 {
                     "name": {
                         "de": "Grillgemüse",
-                        "en": "Grilled Veggies"
+                        "en": "Grilled Vegetables"
                     },
                     "price": "13.90",
                     "desc": {
                         "de": "Tomatensauce I Mozzarella I Grillgemüse",
-                        "en": "Tomato sauce I mozzarella I grilled veggies"
+                        "en": "Tomato sauce I mozzarella I grilled vegetables"
                     }
                 },
                 {
@@ -270,8 +343,19 @@
                     },
                     "price": "13.90",
                     "desc": {
-                        "de": "Thunfisch I Zwiebel I Kapern",
-                        "en": "Tuna I onion I capers"
+                        "de": "Tomatensauce I Mozzarella I Thunfisch I Zwiebel I Kapern",
+                        "en": "Tomato sauce I mozzarella I tuna I onion I capers"
+                    }
+                },
+                {
+                    "name": {
+                        "de": "Capricciosa",
+                        "en": "Capricciosa"
+                    },
+                    "price": "14.90",
+                    "desc": {
+                        "de": "Tom. Sauce I Mozz. I Schinken I Oliven I Pilze I Artischocken",
+                        "en": "Tomato sauce I mozzarella I ham I olives I mushrooms I artichokes"
                     }
                 },
                 {
@@ -281,19 +365,39 @@
                     },
                     "price": "14.90",
                     "desc": {
-                        "de": "Salami Napoli I Oliven I Pfefferon",
-                        "en": "Salami Napoli I olives I pepperoni"
+                        "de": "Tomatensauce I Mozzarella I Salami Napoli I Oliven I Pfefferon",
+                        "en": "Tomato sauce I mozzarella I salami Napoli I olives I hot pepper"
                     }
                 },
                 {
                     "name": {
-                        "de": "Napoli Special",
-                        "en": "Napoli Special"
+                        "de": "Napoli",
+                        "en": "Napoli"
                     },
                     "price": "16.90",
                     "desc": {
-                        "de": "Salami I Spinat I Mascarpone",
-                        "en": "Salami I spinach I mascarpone"
+                        "de": "Tomatensauce I Mozzarella I Salami Napoli I Cherrytomaten I Spinat I Mascarpone",
+                        "en": "Tomato sauce I mozzarella I salami Napoli I cherry tomatoes I spinach I mascarpone"
+                    }
+                }
+            ]
+        },
+        {
+            "id": "closed-pizza",
+            "name": {
+                "de": "Die geschlossenen Pizzen",
+                "en": "Closed Pizzas"
+            },
+            "items": [
+                {
+                    "name": {
+                        "de": "Calzone",
+                        "en": "Calzone"
+                    },
+                    "price": "15.90",
+                    "desc": {
+                        "de": "Tomatensauce I Mozzarella I Champignons I Schinken",
+                        "en": "Tomato sauce I mozzarella I mushrooms I ham"
                     }
                 },
                 {
@@ -303,8 +407,19 @@
                     },
                     "price": "16.90",
                     "desc": {
-                        "de": "Schinken I Salami I Pfefferoni",
-                        "en": "Ham I salami I pepperoni"
+                        "de": "Tomatensauce I Mozz. I Champignons I Schinken I Salami Napoli I Pfefferoni",
+                        "en": "Tomato sauce I mozzarella I mushrooms I ham I salami Napoli I hot peppers"
+                    }
+                },
+                {
+                    "name": {
+                        "de": "Salatpizza Calzone",
+                        "en": "Salad Pizza Calzone"
+                    },
+                    "price": "16.90",
+                    "desc": {
+                        "de": "Tomatensauce I Mozzarella I Schinken I gemischter Salat",
+                        "en": "Tomato sauce I mozzarella I ham I mixed salad"
                     }
                 }
             ]
@@ -318,13 +433,24 @@
             "items": [
                 {
                     "name": {
-                        "de": "Schokoküchlein",
-                        "en": "Chocolate Cake"
+                        "de": "Café Affogato",
+                        "en": "Café Affogato"
+                    },
+                    "price": "4.90",
+                    "desc": {
+                        "de": "Espresso + 1 Kugel Vanilleeis",
+                        "en": "Espresso + 1 scoop of vanilla ice cream"
+                    }
+                },
+                {
+                    "name": {
+                        "de": "Warmes Schokoküchlein",
+                        "en": "Warm Chocolate Cake"
                     },
                     "price": "8.90",
                     "desc": {
-                        "de": "warm mit 1 Kugel Vanilleeis",
-                        "en": "warm with 1 scoop vanilla ice cream"
+                        "de": "mit 1 Kugel Vanille Eis [10min]",
+                        "en": "with 1 scoop of vanilla ice cream [10min]"
                     }
                 },
                 {
@@ -332,21 +458,33 @@
                         "de": "Schoko Mousse",
                         "en": "Chocolate Mousse"
                     },
-                    "price": "8.90"
+                    "price": "8.90",
+                    "desc": {
+                        "de": "Dunkles Schokomousse mit Früchten",
+                        "en": "Dark chocolate mousse with fruits"
+                    }
                 },
                 {
                     "name": {
                         "de": "Tiramisu",
                         "en": "Tiramisu"
                     },
-                    "price": "7.50"
+                    "price": "7.50",
+                    "desc": {
+                        "de": "Hausgemacht nach italienischem Rezept",
+                        "en": "Homemade according to an Italian recipe"
+                    }
                 },
                 {
                     "name": {
                         "de": "Panna Cotta",
                         "en": "Panna Cotta"
                     },
-                    "price": "6.50"
+                    "price": "6.50",
+                    "desc": {
+                        "de": "im Glas mit Himbeer Ragout oder Karamellsauce",
+                        "en": "in a glass with raspberry ragout or caramel sauce"
+                    }
                 }
             ]
         }

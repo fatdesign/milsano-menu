@@ -16,13 +16,30 @@ document.addEventListener('DOMContentLoaded', async () => {
             }
         });
 
-        const root = document.documentElement;
         if (SETTINGS.theme) {
             Object.entries(SETTINGS.theme).forEach(([key, value]) => {
                 const varName = `--${key.replace(/([A-Z])/g, '-$1').toLowerCase()}`;
                 root.style.setProperty(varName, value);
             });
         }
+
+        // --- Dynamic Page Context (Hours & Active Link) ---
+        const isAbend = window.location.pathname.includes('abend.html');
+        const openingHours = document.querySelector('.badge-opening p:nth-child(2)');
+        if (openingHours) {
+            openingHours.textContent = isAbend ? '18:00 - 21:30' : '11:00 - 14:00';
+        }
+
+        const menuLinks = document.querySelectorAll('.menu-link');
+        menuLinks.forEach(link => {
+            const href = link.getAttribute('href');
+            if (isAbend) {
+                link.classList.toggle('active', href.includes('abend.html'));
+            } else {
+                // Not abend -> Mittag (could be index.html or mittag.html)
+                link.classList.toggle('active', href.includes('index.html') || href.includes('mittag.html'));
+            }
+        });
     };
 
     hydrateUI();
@@ -35,11 +52,14 @@ document.addEventListener('DOMContentLoaded', async () => {
     let currentLang = localStorage.getItem(storageKey) || defaultLang;
 
     let menuData;
+    const isAbend = window.location.pathname.includes('abend.html');
+    const dataFile = isAbend ? 'menu-abend.json' : 'menu-mittag.json';
+
     try {
-        const res = await fetch(`./menu.json?t=${Date.now()}`, { cache: 'no-store' });
+        const res = await fetch(`./${dataFile}?t=${Date.now()}`, { cache: 'no-store' });
         menuData = await res.json();
     } catch (e) {
-        menuApp.innerHTML = '<p style="text-align:center;color:#888;padding:4rem;">Speisekarte konnte nicht geladen werden.</p>';
+        menuApp.innerHTML = `<p style="text-align:center;color:#888;padding:4rem;">Speisekarte (${isAbend ? 'Abend' : 'Mittag'}) konnte nicht geladen werden.</p>`;
         return;
     }
 

@@ -4,62 +4,81 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Milsano - Abendkarte</title>
-    <link rel="stylesheet" href="style.css">
+    <title data-hydrate="restaurantName">M I L S A N O</title>
+    <meta name="description" content="" data-hydrate="metaDescription">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+    <script src="settings.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
 
-<body data-menu-type="abend">
-    <header class="glass">
-        <div class="header-container">
-            <div class="logo-area">
-                <img src="logo/logo-milsano.png" alt="Milsano Logo" class="main-logo">
+<body>
+
+    <!-- Badges -->
+    <div class="badge badge-opening">
+        <p>Di - Sa</p>
+        <p>18:00 - 21:30</p>
+    </div>
+
+    <!-- Main Header -->
+    <header class="main-header glass animate-fade-in">
+        <div class="container header-content">
+            <div class="header-top-row">
+                <div class="logo-container">
+                    <img src="logo/logo-milsano.png" alt="Milsano Logo" class="restaurant-logo">
+                    <div class="menu-switcher">
+                        <a href="index.html" class="menu-link">MITTAG</a>
+                        <a href="abend.html" class="menu-link active">ABEND</a>
+                    </div>
+                </div>
+                <div class="header-actions">
+                    <div class="lang-switcher">
+                        <button class="lang-btn" data-lang="de">DE</button>
+                        <button class="lang-btn" data-lang="en">EN</button>
+                    </div>
+                </div>
             </div>
 
-            <div class="lang-switcher">
-                <button class="lang-btn active" data-lang="de">DE</button>
-                <button class="lang-btn" data-lang="en">EN</button>
-            </div>
+            <!-- Category Ribbon (Horizontal Scroll) -->
+            <nav class="category-nav ribbon-nav">
+                <ul id="category-list" class="ribbon-list">
+                    <!-- Categories will be injected here -->
+                </ul>
+            </nav>
         </div>
-
-        <nav class="category-ribbon">
-            <ul class="ribbon-list" id="category-list">
-                <!-- Dynamic categories -->
-            </ul>
-        </nav>
     </header>
 
+
     <main>
-        <section class="hero">
-            <div class="hero-content">
-                <h1 data-hydrate="restaurantName">Milsano</h1>
-                <p class="tagline">Abendkarte</p>
-                <div class="menu-selector">
-                    <a href="mittag.html" class="selector-btn">Mittag</a>
-                    <a href="abend.html" class="selector-btn active">Abend</a>
+
+        <!-- Hero Section -->
+        <section class="hero animate-fade-in">
+            <div class="hero-overlay"></div>
+            <div class="container hero-content">
+                <h1 class="hero-title" data-hydrate="restaurantName">M I L S A N O</h1>
+                <p class="hero-subtitle" data-hydrate="tagline">Genuss im Herzen von Mils</p>
+                <div class="hero-decoration">
+                    <span class="line"></span>
+                    <span class="icon">✧</span>
+                    <span class="line"></span>
                 </div>
             </div>
         </section>
 
-        <div id="menu-app" class="container">
-            <!-- Menu items will be rendered here -->
+        <!-- Menu App -->
+        <div id="menu-app" class="container section-padding">
+            <!-- Dynamic Content -->
         </div>
     </main>
 
     <footer class="glass">
         <div class="container footer-content">
-            <p>&copy; 2024 <span data-hydrate="restaurantName">Milsano</span>. All rights reserved.</p>
+            <p>&copy; <span data-hydrate="footerText">2026 Restaurant Milsano</span></p>
+            <p class="nfc-tagline">Premium Digital Experience</p>
         </div>
     </footer>
 
-    <div class="opening-hours-badge">
-        <span class="badge-dot"></span>
-        <span class="badge-text">DI - SA 10:00 - 23:00</span>
-    </div>
-
-    <script src="settings.js"></script>
     <script src="script.js"></script>
 </body>
 

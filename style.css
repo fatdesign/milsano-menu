@@ -102,7 +102,35 @@ ul {
 .logo-container {
     height: 60px;
     display: flex;
+    flex-direction: column;
     align-items: center;
+    gap: 0.5rem;
+}
+
+.menu-switcher {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+}
+
+.menu-link {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--text-secondary);
+    text-decoration: none;
+    letter-spacing: 1px;
+    padding-bottom: 2px;
+    border-bottom: 2px solid transparent;
+    transition: all 0.3s ease;
+}
+
+.menu-link.active {
+    color: var(--accent-pink);
+    border-bottom-color: var(--accent-pink);
+}
+
+.menu-link:hover {
+    color: var(--text-primary);
 }
 
 .restaurant-logo {
