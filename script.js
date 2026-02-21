@@ -52,7 +52,7 @@ document.addEventListener('DOMContentLoaded', async () => {
     let currentLang = localStorage.getItem(storageKey) || defaultLang;
 
     let menuData;
-    const isAbend = window.location.pathname.includes('abend.html');
+    const isAbend = window.location.pathname.toLowerCase().includes('abend');
     const dataFile = isAbend ? 'menu-abend.json' : 'menu-mittag.json';
 
     try {
