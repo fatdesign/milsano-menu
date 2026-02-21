@@ -35,6 +35,8 @@ document.addEventListener('DOMContentLoaded', async () => {
     let currentLang = localStorage.getItem(storageKey) || defaultLang;
 
     let menuData;
+    let currentMenuType = 'lunch'; // default
+
     try {
         const res = await fetch(`./menu.json?t=${Date.now()}`, { cache: 'no-store' });
         menuData = await res.json();
@@ -47,7 +49,9 @@ document.addEventListener('DOMContentLoaded', async () => {
         menuApp.innerHTML = '';
         categoryList.innerHTML = '';
 
-        menuData.categories.forEach((cat) => {
+        const activeMenu = menuData[currentMenuType] || menuData.lunch;
+
+        activeMenu.categories.forEach((cat) => {
             const catName = cat.name[lang] || cat.name['de'];
 
             // Ribbon Nav
@@ -65,10 +69,12 @@ document.addEventListener('DOMContentLoaded', async () => {
             cat.items.forEach((item, idx) => {
                 const itemName = item.name[lang] || item.name['de'];
                 const itemDesc = item.desc ? (item.desc[lang] || item.desc['de']) : '';
+                const isSoldOut = item.isSoldOut === true;
+
                 itemsHtml += `
-                    <div class="menu-item" style="animation-delay: ${idx * 0.1}s">
+                    <div class="menu-item ${isSoldOut ? 'is-unavailable' : ''}" style="animation-delay: ${idx * 0.1}s">
                         <div class="item-header">
-                            <span class="item-name">${itemName}</span>
+                            <span class="item-name">${itemName} ${isSoldOut ? '<span class="badge-aus">AUS</span>' : ''}</span>
                             <span class="item-price">€ ${item.price}</span>
                         </div>
                         ${itemDesc ? `<p class="item-desc">${itemDesc}</p>` : ''}
@@ -131,6 +137,11 @@ document.addEventListener('DOMContentLoaded', async () => {
         document.querySelectorAll('.lang-btn').forEach(btn => {
             btn.classList.toggle('active', btn.dataset.lang === lang);
         });
+
+        // Update switcher active state
+        document.querySelectorAll('.switcher-btn').forEach(btn => {
+            btn.classList.toggle('active', btn.dataset.menu === currentMenuType);
+        });
     };
 
     const attachSmoothScroll = () => {
@@ -149,6 +160,16 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         });
     };
+
+    // --- Switcher Logic ---
+    document.querySelectorAll('.switcher-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+            currentMenuType = btn.dataset.menu;
+            renderMenu(currentLang);
+            // Scroll to top of categories when switching
+            window.scrollTo({ top: document.querySelector('.menu-switcher-container').offsetTop - 150, behavior: 'smooth' });
+        });
+    });
 
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.addEventListener('click', () => {
