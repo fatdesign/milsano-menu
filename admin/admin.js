@@ -5,7 +5,6 @@
 let sessionPassword = '';
 let menuData = null;
 let currentFileSha = null;
-let currentMenuType = 'lunch';
 
 // ---- DOM References ----
 const loginScreen = document.getElementById('login-screen');
@@ -155,9 +154,7 @@ function renderDashboard() {
     categoriesContainer.innerHTML = '';
     if (notice) categoriesContainer.appendChild(notice);
 
-    const activeCategories = menuData[currentMenuType].categories;
-
-    activeCategories.forEach((cat, catIdx) => {
+    menuData.categories.forEach((cat, catIdx) => {
         const block = document.createElement('div');
         block.className = 'category-block';
 
@@ -212,7 +209,7 @@ function openItemModal(catIdx, itemIdx = null) {
     itemForm.reset();
 
     if (itemIdx !== null) {
-        const item = menuData[currentMenuType].categories[catIdx].items[itemIdx];
+        const item = menuData.categories[catIdx].items[itemIdx];
         modalTitle.textContent = 'Gericht bearbeiten';
         document.getElementById('item-name-de').value = item.name.de || '';
         document.getElementById('item-name-en').value = item.name.en || '';
@@ -239,8 +236,8 @@ itemForm.onsubmit = (e) => {
         desc: { de: document.getElementById('item-desc-de').value.trim(), en: document.getElementById('item-desc-en').value.trim() }
     };
 
-    if (itemIdx !== null) menuData[currentMenuType].categories[catIdx].items[itemIdx] = item;
-    else menuData[currentMenuType].categories[catIdx].items.push(item);
+    if (itemIdx !== null) menuData.categories[catIdx].items[itemIdx] = item;
+    else menuData.categories[catIdx].items.push(item);
 
     itemModal.classList.add('hidden');
     renderDashboard();
@@ -248,7 +245,7 @@ itemForm.onsubmit = (e) => {
 
 function deleteItem(catIdx, itemIdx) {
     if (confirm('Gericht wirklich löschen?')) {
-        menuData[currentMenuType].categories[catIdx].items.splice(itemIdx, 1);
+        menuData.categories[catIdx].items.splice(itemIdx, 1);
         renderDashboard();
     }
 }
@@ -257,8 +254,8 @@ function openCatModal(catIdx = null) {
     editingCatIdx = catIdx;
     catForm.reset();
     if (catIdx !== null) {
-        document.getElementById('cat-name-de').value = menuData[currentMenuType].categories[catIdx].name.de;
-        document.getElementById('cat-name-en').value = menuData[currentMenuType].categories[catIdx].name.en;
+        document.getElementById('cat-name-de').value = menuData.categories[catIdx].name.de;
+        document.getElementById('cat-name-en').value = menuData.categories[catIdx].name.en;
     }
     catModal.classList.remove('hidden');
 }
@@ -268,28 +265,18 @@ catModalCancel.onclick = () => catModal.classList.add('hidden');
 catForm.onsubmit = (e) => {
     e.preventDefault();
     const name = { de: document.getElementById('cat-name-de').value.trim(), en: document.getElementById('cat-name-en').value.trim() };
-    if (editingCatIdx !== null) menuData[currentMenuType].categories[editingCatIdx].name = name;
-    else menuData[currentMenuType].categories.push({ id: name.de.toLowerCase().replace(/\s+/g, '-'), name, items: [] });
+    if (editingCatIdx !== null) menuData.categories[editingCatIdx].name = name;
+    else menuData.categories.push({ id: name.de.toLowerCase().replace(/\s+/g, '-'), name, items: [] });
     catModal.classList.add('hidden');
     renderDashboard();
 };
 
 function deleteCategory(catIdx) {
     if (confirm('Kategorie wirklich löschen?')) {
-        menuData[currentMenuType].categories.splice(catIdx, 1);
+        menuData.categories.splice(catIdx, 1);
         renderDashboard();
     }
 }
-
-// --- Tab Switcher Logic ---
-document.querySelectorAll('.tab-btn').forEach(btn => {
-    btn.addEventListener('click', () => {
-        document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-        btn.classList.add('active');
-        currentMenuType = btn.dataset.type;
-        renderDashboard();
-    });
-});
 
 // ---- Save ----
 saveBtn.onclick = async () => {

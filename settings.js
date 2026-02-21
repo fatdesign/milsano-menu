@@ -6,9 +6,9 @@
 
 const SETTINGS = {
     // 1. BRANDING
-    restaurantName: "M I L S A N O",
-    tagline: "Genuss im Herzen von Mils",
-    metaDescription: "Digitales Menü vom Restaurant Milsano. Entdecken Sie unsere Mittags- und Abendkarte.",
+    restaurantName: "MITTAGS MENÜ",
+    tagline: "Restaurant Milsano",
+    metaDescription: "Digitales Mittagsmenü vom Restaurant Milsano. Dienstag bis Freitag 11:45 – 13:45 Uhr.",
     footerText: "2026 Restaurant Milsano",
 
     // 2. DESIGN TOKENS (Brand Matching Milsano Palette)
