@@ -5,6 +5,7 @@
 let sessionPassword = '';
 let menuData = null;
 let currentFileSha = null;
+let currentMenuFile = 'menu.json'; // Default to lunch menu
 
 // ---- DOM References ----
 const loginScreen = document.getElementById('login-screen');
@@ -23,6 +24,29 @@ const modalCancel = document.getElementById('modal-cancel');
 const catModal = document.getElementById('cat-modal');
 const catForm = document.getElementById('cat-form');
 const catModalCancel = document.getElementById('cat-modal-cancel');
+
+// --- Multi-Menu Switcher ---
+const btnMittag = document.getElementById('btn-mittag');
+const btnAbend = document.getElementById('btn-abend');
+
+if (btnMittag && btnAbend) {
+    btnMittag.onclick = () => switchMenu('menu.json');
+    btnAbend.onclick = () => switchMenu('menu-abend.json');
+}
+
+async function switchMenu(filename) {
+    if (filename === currentMenuFile) return;
+
+    // Check for unsaved changes (simple check)
+    // For now we just switch
+    currentMenuFile = filename;
+
+    // Update UI active state
+    btnMittag.classList.toggle('active', filename === 'menu.json');
+    btnAbend.classList.toggle('active', filename === 'menu-abend.json');
+
+    await loadMenu();
+}
 
 // --- White-Label Hydration ---
 const hydrateAdminUI = () => {
@@ -96,6 +120,7 @@ async function proxyRequest(method, body = null) {
         headers: {
             'Content-Type': 'application/json',
             'X-Admin-Password': sessionPassword,
+            'X-Menu-File': currentMenuFile
         },
     };
     if (body) options.body = JSON.stringify(body);
@@ -123,9 +148,9 @@ async function loadMenu() {
     } catch (err) {
         if (err.message.startsWith('401:')) throw err;
 
-        console.warn('Proxy nicht erreichbar, lade lokale menu.json:', err.message);
+        console.warn('Proxy nicht erreichbar, lade lokale Datei:', currentMenuFile, err.message);
         try {
-            const res = await fetch('../menu.json');
+            const res = await fetch(`../${currentMenuFile}`);
             menuData = await res.json();
             currentFileSha = null;
             categoriesContainer.innerHTML = '';

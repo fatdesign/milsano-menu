@@ -42,7 +42,10 @@
 
         <main class="admin-container dashboard-main">
             <section class="admin-controls">
-                <h2>Menü Verwaltung</h2>
+                <div class="menu-toggle">
+                    <button id="btn-mittag" class="btn btn-toggle active" data-file="menu.json">Mittags Menü</button>
+                    <button id="btn-abend" class="btn btn-toggle" data-file="menu-abend.json">Abend Menü</button>
+                </div>
                 <button id="add-category-btn" class="btn btn-secondary">+ Neue Kategorie</button>
             </section>
 

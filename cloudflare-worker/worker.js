@@ -15,7 +15,8 @@ export default {
             return corsResponse(JSON.stringify({ error: 'Unauthorized' }), 401, env);
         }
 
-        const githubApiUrl = `https://api.github.com/repos/${env.GITHUB_OWNER}/${env.GITHUB_REPO}/contents/menu.json`;
+        const menuFile = request.headers.get('X-Menu-File') || 'menu.json';
+        const githubApiUrl = `https://api.github.com/repos/${env.GITHUB_OWNER}/${env.GITHUB_REPO}/contents/${menuFile}`;
 
         const githubHeaders = {
             'Authorization': `Bearer ${env.GITHUB_TOKEN}`,
@@ -43,7 +44,7 @@ export default {
                 method: 'PUT',
                 headers: githubHeaders,
                 body: JSON.stringify({
-                    message: 'Admin: Milsano Speisekarte aktualisiert',
+                    message: `Admin: Milsano Speisekarte (${menuFile}) aktualisiert`,
                     content: body.content,
                     sha: body.sha,
                 }),
@@ -62,7 +63,7 @@ function corsResponse(body, status, env) {
         'Content-Type': 'application/json',
         'Access-Control-Allow-Origin': env.ALLOWED_ORIGIN || '*',
         'Access-Control-Allow-Methods': 'GET, POST, OPTIONS',
-        'Access-Control-Allow-Headers': 'Content-Type, X-Admin-Password',
+        'Access-Control-Allow-Headers': 'Content-Type, X-Admin-Password, X-Menu-File',
     };
     return new Response(body, { status, headers });
 }
