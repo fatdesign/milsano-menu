@@ -230,6 +230,7 @@ body {
     font-weight: 700;
     color: var(--gold);
     padding: 0 2rem;
+    white-space: nowrap;
 }
 
 /* Modals */

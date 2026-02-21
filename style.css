@@ -288,6 +288,8 @@ ul {
     font-weight: 700;
     color: var(--accent-pink);
     font-size: 1.1rem;
+    white-space: nowrap;
+    flex-shrink: 0;
 }
 
 .item-desc {
