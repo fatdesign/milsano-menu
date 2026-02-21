@@ -11,14 +11,14 @@ const SETTINGS = {
     metaDescription: "Digitales Menü vom Restaurant Milsano. Entdecken Sie unsere Mittags- und Abendkarte.",
     footerText: "2026 Restaurant Milsano",
 
-    // 2. DESIGN TOKENS (Premium Milsano Theme)
+    // 2. DESIGN TOKENS (Brand Matching Milsano Palette)
     theme: {
-        bgPrimary: "#0f0f0f",    // Deep Black
-        bgHeader: "#1a1a1a",     // Dark Grey
-        accentPink: "#d4af37",   // Gold
-        accentTeal: "#ffffff",   // White
-        textPrimary: "#ffffff",
-        textSecondary: "#b0b0b0",
+        bgPrimary: "#011826",    // Deep Navy
+        bgHeader: "#034159",     // Accent Navy
+        accentPink: "#BF7245",   // Fire Gold (Primary Accent)
+        accentTeal: "#A66F6F",   // Fire Red (Secondary Accent)
+        textPrimary: "#F2F2F2",  // Off White (Logo Color)
+        textSecondary: "rgba(242, 242, 242, 0.7)",
         fontHeading: "'Outfit', sans-serif",
         fontBody: "'Outfit', sans-serif"
     },

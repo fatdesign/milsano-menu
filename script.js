@@ -29,10 +29,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const menuApp = document.getElementById('menu-app');
     const categoryList = document.getElementById('category-list');
-    const mobileCategoryList = document.getElementById('mobile-category-list');
-    const mobileMenuOverlay = document.getElementById('mobile-menu-overlay');
-    const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
-    const closeMobileMenu = document.getElementById('close-mobile-menu');
 
     const storageKey = typeof SETTINGS !== 'undefined' ? SETTINGS.storageKey : 'milsano_lang';
     const defaultLang = typeof SETTINGS !== 'undefined' ? SETTINGS.defaultLang : 'de';
@@ -50,27 +46,20 @@ document.addEventListener('DOMContentLoaded', async () => {
     const renderMenu = (lang) => {
         menuApp.innerHTML = '';
         categoryList.innerHTML = '';
-        mobileCategoryList.innerHTML = '';
 
         menuData.categories.forEach((cat) => {
             const catName = cat.name[lang] || cat.name['de'];
 
-            // Desktop Nav
+            // Ribbon Nav
             const li = document.createElement('li');
             li.innerHTML = `<a href="#${cat.id}">${catName}</a>`;
             categoryList.appendChild(li);
-
-            // Mobile Nav
-            const mLi = document.createElement('li');
-            mLi.innerHTML = `<a href="#${cat.id}">${catName}</a>`;
-            mobileCategoryList.appendChild(mLi);
 
             // Section
             const section = document.createElement('section');
             section.id = cat.id;
             section.className = 'menu-section';
-            section.style.marginBottom = '6rem';
-            section.style.scrollMarginTop = '120px';
+            section.style.scrollMarginTop = '150px';
 
             let itemsHtml = '';
             cat.items.forEach((item, idx) => {
@@ -105,13 +94,19 @@ document.addEventListener('DOMContentLoaded', async () => {
 
         document.querySelectorAll('.menu-item').forEach(item => observer.observe(item));
 
-        // Category Highlight
+        // Category Highlight & Ribbon Tracking
         const navObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     const id = entry.target.getAttribute('id');
-                    document.querySelectorAll('.category-nav a, #mobile-category-list a').forEach(a => {
-                        a.classList.toggle('active', a.getAttribute('href') === `#${id}`);
+                    document.querySelectorAll('.ribbon-list a').forEach(a => {
+                        const isActive = a.getAttribute('href') === `#${id}`;
+                        a.classList.toggle('active', isActive);
+
+                        // Auto-scroll the ribbon to the active item
+                        if (isActive) {
+                            a.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                        }
                     });
                 }
             });
@@ -134,8 +129,6 @@ document.addEventListener('DOMContentLoaded', async () => {
                 if (!target) return;
 
                 const headerHeight = document.querySelector('.main-header').offsetHeight;
-                mobileMenuOverlay.classList.remove('active');
-                document.body.style.overflow = '';
 
                 window.scrollTo({
                     top: target.offsetTop - headerHeight - 20,
@@ -144,16 +137,6 @@ document.addEventListener('DOMContentLoaded', async () => {
             });
         });
     };
-
-    mobileMenuToggle?.addEventListener('click', () => {
-        mobileMenuOverlay.classList.add('active');
-        document.body.style.overflow = 'hidden';
-    });
-
-    closeMobileMenu?.addEventListener('click', () => {
-        mobileMenuOverlay.classList.remove('active');
-        document.body.style.overflow = '';
-    });
 
     document.querySelectorAll('.lang-btn').forEach(btn => {
         btn.addEventListener('click', () => {
