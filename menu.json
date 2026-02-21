@@ -34,11 +34,12 @@
             "de": "BEEF TATAR V. HEIMISCHEN RIND",
             "en": "BEEF TARTARE"
           },
+          "price": "20.90",
+          "isSoldOut": true,
           "desc": {
             "de": "...mit allem was dazu gehört!",
             "en": "...with all the trimmings!"
-          },
-          "price": "20.90"
+          }
         },
         {
           "name": {
