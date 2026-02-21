@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Milsano - Mittagskarte</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body data-menu-type="mittag">
+    <header class="glass">
+        <div class="header-container">
+            <div class="logo-area">
+                <img src="logo/logo-milsano.png" alt="Milsano Logo" class="main-logo">
+            </div>
+
+            <div class="lang-switcher">
+                <button class="lang-btn active" data-lang="de">DE</button>
+                <button class="lang-btn" data-lang="en">EN</button>
+            </div>
+        </div>
+
+        <nav class="category-ribbon">
+            <ul class="ribbon-list" id="category-list">
+                <!-- Dynamic categories -->
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1 data-hydrate="restaurantName">Milsano</h1>
+                <p class="tagline">Mittagskarte</p>
+                <div class="menu-selector">
+                    <a href="mittag.html" class="selector-btn active">Mittag</a>
+                    <a href="abend.html" class="selector-btn">Abend</a>
+                </div>
+            </div>
+        </section>
+
+        <div id="menu-app" class="container">
+            <!-- Menu items will be rendered here -->
+        </div>
+    </main>
+
+    <footer class="glass">
+        <div class="container footer-content">
+            <p>&copy; 2024 <span data-hydrate="restaurantName">Milsano</span>. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <div class="opening-hours-badge">
+        <span class="badge-dot"></span>
+        <span class="badge-text">DI - SA 10:00 - 23:00</span>
+    </div>
+
+    <script src="settings.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

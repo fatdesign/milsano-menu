@@ -175,16 +175,17 @@ ul {
 /* Hero Section */
 .hero {
     position: relative;
-    height: 40vh;
+    height: 60vh;
+    min-height: 400px;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    margin-top: 140px;
-    /* Reduced to remove gap under header+ribbon */
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('image/milsano-grill.jpg');
-    background-size: cover;
-    background-position: center;
+    padding-top: 80px;
+    /* Offset for fixed header */
+    background: linear-gradient(rgba(1, 24, 38, 0.4), rgba(1, 24, 38, 0.8)),
+        url('milsano-grill.jpg') center/cover no-repeat;
+    margin-top: 0;
 }
 
 .hero-overlay {
@@ -197,15 +198,60 @@ ul {
 }
 
 .hero-content {
-    position: relative;
-    z-index: 2;
+    z-index: 10;
+    padding: 0 var(--space-s);
 }
 
-.hero-title {
+.hero h1 {
     font-size: clamp(3rem, 10vw, 5rem);
-    color: var(--accent-pink);
-    letter-spacing: 8px;
     margin-bottom: 0.5rem;
+    letter-spacing: -0.02em;
+    text-transform: uppercase;
+    background: linear-gradient(to bottom, #fff, rgba(255, 255, 255, 0.5));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.tagline {
+    font-size: 1.2rem;
+    color: var(--accent-pink);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+}
+
+/* Menu Selector */
+.menu-selector {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+}
+
+.selector-btn {
+    padding: 0.8rem 2.5rem;
+    border: 1px solid var(--border-color);
+    border-radius: 100px;
+    font-family: var(--font-ui);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    background: rgba(255, 255, 255, 0.03);
+    color: var(--text-secondary);
+}
+
+.selector-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+    transform: translateY(-2px);
+}
+
+.selector-btn.active {
+    background: var(--accent-pink);
+    color: white;
+    border-color: var(--accent-pink);
+    box-shadow: 0 4px 15px rgba(191, 114, 69, 0.3);
 }
 
 .hero-subtitle {
@@ -235,14 +281,58 @@ ul {
     font-size: 1.2rem;
 }
 
-/* Menu Items */
+/* Category Dividers & Spacing */
+.menu-section {
+    padding-top: var(--space-l);
+    /* Extra space for titles */
+    position: relative;
+}
+
+.section-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    margin: 4rem 0 2rem;
+    opacity: 0.6;
+}
+
+.section-divider .line {
+    height: 1px;
+    flex-grow: 1;
+    max-width: 100px;
+    background: linear-gradient(to right, transparent, var(--accent-pink), transparent);
+}
+
+.section-divider .icon {
+    color: var(--accent-pink);
+    font-size: 1.5rem;
+    filter: drop-shadow(0 0 8px rgba(191, 114, 69, 0.4));
+    animation: pulseFire 3s infinite ease-in-out;
+}
+
+@keyframes pulseFire {
+
+    0%,
+    100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+
+    50% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+}
+
 .section-title {
-    font-size: 2rem;
+    font-size: 2.5rem;
     text-align: center;
     margin-bottom: var(--space-m);
     color: var(--accent-pink);
-    letter-spacing: 3px;
+    letter-spacing: 5px;
     text-transform: uppercase;
+    text-shadow: 0 0 20px rgba(191, 114, 69, 0.2);
 }
 
 .items-grid {

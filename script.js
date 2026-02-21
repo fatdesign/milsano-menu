@@ -32,18 +32,43 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const storageKey = typeof SETTINGS !== 'undefined' ? SETTINGS.storageKey : 'milsano_lang';
     const defaultLang = typeof SETTINGS !== 'undefined' ? SETTINGS.defaultLang : 'de';
+    // ---- State ----
     let currentLang = localStorage.getItem(storageKey) || defaultLang;
+    let menuData = null;
 
-    let menuData;
-    try {
-        const res = await fetch(`./menu.json?t=${Date.now()}`, { cache: 'no-store' });
-        menuData = await res.json();
-    } catch (e) {
-        menuApp.innerHTML = '<p style="text-align:center;color:#888;padding:4rem;">Speisekarte konnte nicht geladen werden.</p>';
-        return;
-    }
+    // ---- Core Logic ----
+    const loadMenu = async () => {
+        try {
+            const menuType = document.body.dataset.menuType || 'abend';
+            const jsonFile = `menu-${menuType}.json?t=${Date.now()}`; // Added cache busting
+            const response = await fetch(jsonFile, { cache: 'no-store' });
+            if (!response.ok) throw new Error(`Failed to load ${jsonFile}`);
+            menuData = await response.json();
+            renderMenu(currentLang);
+        } catch (error) {
+            console.error(`Error loading menu type specific file (${document.body.dataset.menuType || 'abend'}):`, error);
+            // Fallback to menu.json if specific one fails
+            try {
+                const response = await fetch(`menu.json?t=${Date.now()}`, { cache: 'no-store' });
+                if (!response.ok) throw new Error('Failed to load menu.json');
+                menuData = await response.json();
+                renderMenu(currentLang);
+            } catch (fallbackError) {
+                console.error("Error loading fallback menu.json:", fallbackError);
+                menuApp.innerHTML = '<p style="text-align:center;color:#888;padding:4rem;">Speisekarte konnte nicht geladen werden.</p>';
+                return;
+            }
+        }
+    };
 
     const renderMenu = (lang) => {
+        if (!menuData) {
+            // This case should ideally be handled by loadMenu's error message,
+            // but as a safeguard, if renderMenu is called without data.
+            menuApp.innerHTML = '<p style="text-align:center;color:#888;padding:4rem;">Speisekarte konnte nicht geladen werden.</p>';
+            return;
+        }
+
         menuApp.innerHTML = '';
         categoryList.innerHTML = '';
 
@@ -76,7 +101,19 @@ document.addEventListener('DOMContentLoaded', async () => {
                 `;
             });
 
+            let dividerHtml = '';
+            if (menuApp.children.length > 0) {
+                dividerHtml = `
+                    <div class="section-divider animate-fade-in">
+                        <span class="line"></span>
+                        <span class="icon">🔥</span>
+                        <span class="line"></span>
+                    </div>
+                `;
+            }
+
             section.innerHTML = `
+                ${dividerHtml}
                 <h2 class="section-title">${catName}</h2>
                 <div class="items-grid">${itemsHtml}</div>
             `;
