@@ -169,7 +169,10 @@ function showConfigNotice(errMsg = '') {
     notice.style.padding = '1rem';
     notice.style.borderRadius = '8px';
     notice.style.marginBottom = '2rem';
-    notice.innerHTML = `⚠️ <strong>Lokaler Modus:</strong> Änderungen werden nicht dauerhaft gespeichert (GitHub Proxy erforderlich).`;
+    notice.innerHTML = `
+        <p>⚠️ <strong>Lokaler Modus:</strong> Änderungen werden nicht dauerhaft gespeichert (GitHub Proxy erforderlich).</p>
+        ${errMsg ? `<p style="font-size: 0.8rem; margin-top: 5px; opacity: 0.8;">Details: ${errMsg}</p>` : ''}
+    `;
     categoriesContainer.appendChild(notice);
 }
 
