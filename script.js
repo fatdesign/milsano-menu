@@ -36,6 +36,87 @@ document.addEventListener('DOMContentLoaded', async () => {
     const defaultLang = typeof SETTINGS !== 'undefined' ? SETTINGS.defaultLang : 'de';
     let currentLang = localStorage.getItem(storageKey) || defaultLang;
 
+    // --- Cart State ---
+    let cart = JSON.parse(localStorage.getItem('milsano_cart') || '[]');
+
+    const updateCartUI = () => {
+        const cartCount = document.getElementById('cart-count');
+        const cartToggle = document.getElementById('cart-toggle');
+        const cartItemsContainer = document.getElementById('cart-items');
+        const cartTotalPrice = document.getElementById('cart-total-price');
+
+        if (!cartCount || !cartToggle || !cartItemsContainer || !cartTotalPrice) return;
+
+        const totalItems = cart.reduce((sum, item) => sum + item.qty, 0);
+        cartCount.textContent = totalItems;
+
+        // Always show if items > 0, otherwise hide
+        if (totalItems > 0) {
+            cartToggle.classList.remove('hidden');
+        } else {
+            cartToggle.classList.add('hidden');
+            document.getElementById('cart-drawer')?.classList.remove('active');
+        }
+
+        if (totalItems === 0) {
+            cartItemsContainer.innerHTML = '<p class="empty-msg">Deine Liste ist leer.</p>';
+            cartTotalPrice.textContent = '€ 0.00';
+            return;
+        }
+
+        let total = 0;
+        cartItemsContainer.innerHTML = cart.map((item, index) => {
+            const itemPrice = parseFloat(item.price.replace(',', '.'));
+            total += itemPrice * item.qty;
+            return `
+                <div class="cart-item">
+                    <div class="cart-item-info">
+                        <span class="cart-item-name">${item.name}</span>
+                        <span class="cart-item-price">€ ${item.price}</span>
+                    </div>
+                    <div class="qty-controls">
+                        <button class="qty-btn" onclick="updateCartItem(${index}, -1)">-</button>
+                        <span class="qty-val">${item.qty}</span>
+                        <button class="qty-btn" onclick="updateCartItem(${index}, 1)">+</button>
+                    </div>
+                </div>
+            `;
+        }).join('');
+
+        cartTotalPrice.textContent = `€ ${total.toFixed(2)}`;
+        localStorage.setItem('milsano_cart', JSON.stringify(cart));
+    };
+
+    window.updateCartItem = (index, delta) => {
+        cart[index].qty += delta;
+        if (cart[index].qty <= 0) cart.splice(index, 1);
+        renderMenu(currentLang);
+        updateCartUI();
+    };
+
+    window.addToCart = (itemName, itemPrice) => {
+        const existing = cart.find(i => i.name === itemName);
+        if (existing) {
+            existing.qty += 1;
+        } else {
+            cart.push({ name: itemName, price: itemPrice, qty: 1 });
+        }
+        renderMenu(currentLang);
+        updateCartUI();
+    };
+
+    window.removeFromCart = (itemName) => {
+        const existing = cart.find(i => i.name === itemName);
+        if (existing) {
+            existing.qty -= 1;
+            if (existing.qty <= 0) {
+                cart = cart.filter(i => i.name !== itemName);
+            }
+        }
+        renderMenu(currentLang);
+        updateCartUI();
+    };
+
     let menuData;
     try {
         const res = await fetch(`./${menuFile}?t=${Date.now()}`, { cache: 'no-store' });
@@ -67,6 +148,9 @@ document.addEventListener('DOMContentLoaded', async () => {
             cat.items.forEach((item, idx) => {
                 const itemName = item.name[lang] || item.name['de'];
                 const itemDesc = item.desc ? (item.desc[lang] || item.desc['de']) : '';
+                const cartItem = cart.find(i => i.name === itemName);
+                const qty = cartItem ? cartItem.qty : 0;
+
                 itemsHtml += `
                     <div class="menu-item" style="animation-delay: ${idx * 0.1}s">
                         <div class="item-header">
@@ -74,6 +158,14 @@ document.addEventListener('DOMContentLoaded', async () => {
                             <span class="item-price">€ ${item.price}</span>
                         </div>
                         ${itemDesc ? `<p class="item-desc">${itemDesc}</p>` : ''}
+                        
+                        <div class="item-actions-row">
+                            <div class="qty-controls">
+                                <button class="qty-btn" onclick="removeFromCart('${itemName.replace(/'/g, "\\'")}')">-</button>
+                                <span class="qty-val">${qty}</span>
+                                <button class="qty-btn" onclick="addToCart('${itemName.replace(/'/g, "\\'")}', '${item.price}')">+</button>
+                            </div>
+                        </div>
                     </div>
                 `;
             });
@@ -161,4 +253,21 @@ document.addEventListener('DOMContentLoaded', async () => {
     });
 
     renderMenu(currentLang);
+    updateCartUI();
+
+    // Cart Listeners
+    const cartDrawer = document.getElementById('cart-drawer');
+    const cartToggle = document.getElementById('cart-toggle');
+    const closeCart = document.getElementById('close-cart');
+    const clearCart = document.getElementById('clear-cart');
+
+    if (cartToggle) cartToggle.onclick = () => cartDrawer.classList.add('active');
+    if (closeCart) closeCart.onclick = () => cartDrawer.classList.remove('active');
+    if (clearCart) clearCart.onclick = () => {
+        if (confirm('Liste wirklich leeren?')) {
+            cart = [];
+            renderMenu(currentLang);
+            updateCartUI();
+        }
+    };
 });

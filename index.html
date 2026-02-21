@@ -50,26 +50,50 @@
     </header>
 
 
-    <main>
+    <!-- Floating Cart Button -->
+    <button id="cart-toggle" class="floating-cart animate-fade-in hidden">
+        <span class="cart-icon">🛒</span>
+        <span id="cart-count" class="cart-badge">0</span>
+    </button>
 
-        <!-- Hero Section -->
-        <section class="hero animate-fade-in">
-            <div class="hero-overlay"></div>
-            <div class="container hero-content">
-                <h1 class="hero-title" data-hydrate="restaurantName">M I L S A N O</h1>
-                <p class="hero-subtitle" data-hydrate="tagline">Genuss im Herzen von Mils</p>
-                <div class="hero-decoration">
-                    <span class="line"></span>
-                    <span class="icon">✧</span>
-                    <span class="line"></span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Menu App -->
-        <div id="menu-app" class="container section-padding">
-            <!-- Dynamic Content -->
+    <!-- Cart Drawer -->
+    <div id="cart-drawer" class="cart-drawer glass">
+        <div class="cart-header">
+            <h3>DEINE MERKLISTE</h3>
+            <button id="close-cart" class="btn-close">&times;</button>
         </div>
+        <div id="cart-items" class="cart-items-container">
+            <!-- Items will be injected here -->
+            <p class="empty-msg">Deine Liste ist leer.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="cart-total">
+                <span>Gesamt (ca.):</span>
+                <span id="cart-total-price">€ 0.00</span>
+            </div>
+            <p class="cart-note">Bitte bei der Bestellung beim Service angeben.</p>
+            <button id="clear-cart" class="btn-clear">Liste leeren</button>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero animate-fade-in">
+        <div class="hero-overlay"></div>
+        <div class="container hero-content">
+            <h1 class="hero-title" data-hydrate="restaurantName">M I L S A N O</h1>
+            <p class="hero-subtitle" data-hydrate="tagline">Genuss im Herzen von Mils</p>
+            <div class="hero-decoration">
+                <span class="line"></span>
+                <span class="icon">✧</span>
+                <span class="line"></span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu App -->
+    <div id="menu-app" class="container section-padding">
+        <!-- Dynamic Content -->
+    </div>
     </main>
 
     <footer class="glass">
