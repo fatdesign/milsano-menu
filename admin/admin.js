@@ -287,7 +287,7 @@ saveBtn.onclick = async () => {
         const content = btoa(unescape(encodeURIComponent(JSON.stringify(menuData, null, 2))));
         const res = await proxyRequest('POST', { content, sha: currentFileSha });
         currentFileSha = res.content.sha;
-        saveStatus.textContent = '✓ Gespeichert (ca. 30s Synchronisation)';
+        saveStatus.textContent = '✓ Gespeichert (in ca. 30s aktuell!)';
         setTimeout(() => saveStatus.textContent = '', 3000);
     } catch (err) {
         saveStatus.textContent = '❌ Fehler';

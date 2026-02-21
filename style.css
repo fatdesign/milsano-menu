@@ -130,6 +130,7 @@ ul {
 
 .ribbon-list {
     display: flex;
+    justify-content: center;
     gap: var(--space-s);
     padding: 0 var(--space-s);
     min-width: max-content;
