@@ -151,11 +151,12 @@
             "de": "GEGRILLTES BBQ HÜHNERFILET",
             "en": "GRILLED BBQ CHICKEN FILLET"
           },
+          "price": "21.90",
+          "isSoldOut": true,
           "desc": {
             "de": "inkl. einer BEILAGE + SAUCE",
             "en": "incl. one SIDE + SAUCE"
-          },
-          "price": "21.90"
+          }
         },
         {
           "name": {
